@@ -1,4 +1,4 @@
-name: Start build ssr+  two platforms by wk
+name: Start build ssr+  3 platforms by wk
 
 on:
  workflow_dispatch:
@@ -11,6 +11,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          
+          # e.g.PHICOMM N1
+          - arch: aarch64_generic
+          
+          # e.g.R4S
           - arch: aarch64_cortex-a53
             target: mvebu-cortexa53
 
@@ -100,5 +105,5 @@ jobs:
           name: ${{env.ARCHIVE_NAME}}-packages
           path: |
             *.ipk
-            PKG-INFO
+            
 
